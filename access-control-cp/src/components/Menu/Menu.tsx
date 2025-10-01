@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 export default function Menu(){
     return(
         <nav>
-            <h1>Menu</h1>
+            <Link to="./cadastro">Cadastro</Link>
         </nav>
     )
 }
