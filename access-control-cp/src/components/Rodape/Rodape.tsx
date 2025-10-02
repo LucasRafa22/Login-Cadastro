@@ -1,7 +1,7 @@
 export default function Rodape(){
     return(
         <footer>
-            <h1>Footer</h1>
+            <p>&copy; Todos os direitos reservados - 2025. App</p>
         </footer>
     )
 }
