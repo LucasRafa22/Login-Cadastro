@@ -2,7 +2,7 @@ export default function Login(){
     return(
         <main>
             <h1>Login</h1>
-            <form action="submit">
+            <form>
                 <div>
                     <label>Nome de Usuário</label>
                     <input type="text" placeholder="Digite nome de usuráio" />
