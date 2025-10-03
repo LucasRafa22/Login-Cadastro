@@ -1,20 +1,75 @@
-export default function Login(){
-    return(
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import type { TipoCadastro } from "../../types/tipoCadastro";
+
+const URL_API_CADASTROS = import.meta.env.VITE_API_URL_BASE_CADASTROS;
+
+export default function Login() {
+    useEffect(() => {
+        document.title = "Login";
+    }, []);
+
+    const navigate = useNavigate();
+
+    const { register, handleSubmit, formState: { errors } } = useForm<TipoCadastro>({
+        mode: "onBlur"
+    });
+
+    const onSubmit = async (data: TipoCadastro) => {
+        try {
+            const response = await fetch(`${URL_API_CADASTROS}?nomeUsuario=${data.nomeUsuario}&email=${data.email}`);
+            const usuariosEncontrados = await response.json();
+            
+            if (usuariosEncontrados.length > 0) {
+                alert("Login realizado com sucesso!");
+                navigate("/site");
+            } else {
+                alert("Credenciais inválidas. Verifique seu nome de usuário e email.");
+            }
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            alert("Erro na comunicação com o servidor.");
+        }
+    };
+
+    return (
         <main>
             <h1>Login</h1>
             <div>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-md space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow text-gray-700">
+                    <h2 className="text-lg font-semibold">Formulário de Login</h2>
+
                     <div>
-                        <label>Nome de Usuário</label>
-                        <input type="text" placeholder="Digite nome de usuráio" />
+                        <label htmlFor="nomeUsuario">Nome de Usuário</label>
+                        <input
+                            id="nomeUsuario"
+                            type="text"
+                            
+                            {...register("nomeUsuario", { required: "O nome de usuário é obrigatório" }
+                            )}
+                        />
+                        {errors.nomeUsuario && <span>{errors.nomeUsuario.message}</span>}
                     </div>
+
                     <div>
-                        <label>Email</label>
-                        <input type="email" placeholder="Digite o email" />
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            {...register ("email", { required: "O nome de usuário é obrigatório" }
+                            )}
+                        />
+                        {errors.email && <span>{errors.email.message}</span>}
                     </div>
-                    <button>Entrar</button>
+
+                    <div>
+                        <button type="submit">
+                            Entrar
+                        </button>
+                    </div>
                 </form>
             </div>
         </main>
-    )
+    );
 }
