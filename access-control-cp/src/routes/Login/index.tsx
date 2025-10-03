@@ -37,8 +37,8 @@ export default function Login() {
         <main>
             <h1>Login</h1>
             <div>
-                <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-md space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow text-gray-700">
-                    <h2 className="text-lg font-semibold">Formulário de Login</h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2>Formulário de Login</h2>
 
                     <div>
                         <label htmlFor="nomeUsuario">Nome de Usuário</label>
