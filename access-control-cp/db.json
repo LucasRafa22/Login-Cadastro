@@ -1,6 +1,5 @@
 {
-  "usuarios": [{
-    "id": "1",
+  "cadastros": [{
     "nome": "João Ribeiro",
     "nomeUsuario": "João123",
     "email": "joao@gmail.com"
