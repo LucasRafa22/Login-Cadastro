@@ -23,7 +23,7 @@ export default function Login() {
             
             if (usuariosEncontrados.length > 0) {
                 alert("Login realizado com sucesso!");
-                navigate("/site");
+                navigate("/site", { state: usuariosEncontrados[0] });
             } else {
                 alert("Credenciais inválidas. Verifique seu nome de usuário e email.");
             }
