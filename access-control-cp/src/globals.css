@@ -1,5 +1,81 @@
 @import "tailwindcss";
 
-:root{
+:root {
     scroll-behavior: smooth;
+    --cor-de-fundo: white;
+    --cor-do-bloco: #f0f0f0;
+    --cor-do-header: grey;
+    --cor-quebra: black;
+    --cor-botao: rgb(151, 142, 142);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *:before, *:after {
+    @apply box-border; 
+}
+body, #root {
+    @apply m-0 p-0 w-full min-h-screen bg-[var(--cor-de-fundo)] overflow-x-hidden;
+    @apply font-sans;
+}
+
+
+.titulo_principal {
+    @apply text-[2.5rem] font-bold text-center mb-6;
+}
+.subtitulo {
+    @apply text-[2rem] text-center mb-4;
+}
+.texto_padrao {
+    @apply text-[1.125rem];
+}
+
+.texto_botao { 
+    @apply text-[1rem] h-full w-full py-3 px-3 border-2 border-gray-300 rounded-lg;
+}
+.botao_confirmar {
+    @apply text-[1.5rem] text-white bg-[var(--cor-botao)] rounded-lg py-2 px-6 mt-8 block mx-auto transition-transform hover:scale-105;
+}
+
+
+.container {
+    @apply flex flex-col min-h-screen w-full;
+}
+.pagina-conteudo {
+    @apply flex-grow flex flex-col items-center justify-center p-8 w-full;
+}
+
+
+header {
+    @apply w-full flex h-24 items-center justify-between bg-[var(--cor-do-header)] border-b-4 border-[var(--cor-quebra)] px-6;
+}
+header h1 {
+    @apply text-white text-4xl font-bold;
+}
+header nav {
+    @apply flex flex-row gap-4;
+}
+header nav a {
+    @apply text-white text-lg font-semibold list-none p-2 hover:underline;
+}
+footer {
+    @apply w-full bg-[var(--cor-do-header)] text-white text-center p-6 mt-auto;
+}
+
+
+.form_card {
+    @apply w-full max-w-2xl bg-[var(--cor-do-bloco)] p-8 rounded-xl shadow-lg mx-auto;
+}
+.form_group {
+    @apply mb-4; 
+}
+.form_label {
+    @apply block mb-1 font-semibold text-gray-700; 
+}
+
+
+.errorMsg {
+    @apply text-[#e91111] bg-[#ee9292] p-2 rounded text-sm mt-2 w-full;
 }
