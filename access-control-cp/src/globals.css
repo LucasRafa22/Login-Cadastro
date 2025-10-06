@@ -1,5 +1,118 @@
 @import "tailwindcss";
 
-:root{
+:root {
     scroll-behavior: smooth;
+    --cor-de-fundo: white;
+    --cor-do-bloco: #CCCCCC;
+    --cor-do-header: grey;
+    --cor-quebra: black;
+    --cor-botao: rgb(151, 142, 142);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RESET PARA EVITAR BARRA BRANCA */
+html, body, #root {
+    @apply m-0 p-0 w-full h-full overflow-x-hidden bg-[var(--cor-de-fundo)];
+}
+
+body {
+    @apply font-sans;
+}
+
+/* TITULOS E TEXTOS */
+.titulo_principal {
+    @apply text-[2.5rem] font-bold text-center mb-6;
+}
+
+.subtitulo {
+    @apply text-[2rem] text-center mb-4;
+}
+
+.texto_padrao {
+    @apply text-[1.125rem];
+}
+
+.texto_botao {
+    @apply text-[1.5rem] opacity-75 h-full w-full py-2 px-2 border-2 border-black rounded-lg;
+}
+
+.botao_confirmar {
+    @apply text-[1.5rem] text-white bg-[var(--cor-botao)] rounded-lg py-2 px-6 mt-8 block mx-auto transition-transform hover:scale-105;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    @apply flex flex-col min-h-screen w-full bg-[var(--cor-de-fundo)];
+}
+
+/* HEADER */
+header {
+    @apply w-full flex h-24 items-center justify-between bg-[var(--cor-do-header)] border-b-4 border-[var(--cor-quebra)] px-6;
+}
+
+header h1 {
+    @apply text-white text-4xl font-bold;
+}
+
+header nav {
+    @apply flex flex-row gap-4;
+}
+
+header nav a {
+    @apply text-white text-lg font-semibold list-none p-2 hover:underline;
+}
+
+/* FOOTER */
+footer {
+    @apply w-full bg-[var(--cor-do-header)] text-white text-center p-6 mt-auto;
+}
+
+/* CONTEÚDO CENTRAL */
+.pagina-conteudo {
+    @apply flex-grow flex flex-col items-center justify-center p-8 w-full;
+}
+
+/* CARD / FORMULÁRIO */
+.form_card {
+    @apply w-full max-w-3xl bg-[var(--cor-do-bloco)] p-8 rounded-xl shadow-lg mx-auto;
+}
+
+/* LOGIN E REQUISITOS */
+.login {
+    @apply flex flex-col items-center w-full;
+}
+
+.login_requisitos {
+    @apply flex flex-col justify-around items-center bg-[var(--cor-do-bloco)] w-full max-w-3xl mt-6 rounded-lg p-4;
+}
+
+.pergunta {
+    @apply border-b-2 border-[var(--cor-quebra)] w-full;
+}
+
+.pessoa {
+    @apply flex flex-row justify-between py-4 border-b-2 border-[var(--cor-quebra)] w-full;
+}
+
+.pessoa_img {
+    @apply h-24 w-24 rounded-full;
+}
+
+/* CONTATOS */
+.contatos {
+    @apply flex flex-col items-center w-full;
+}
+
+.contatos_campo {
+    @apply flex justify-center bg-[var(--cor-do-bloco)] w-full max-w-4xl rounded-lg my-12 p-6;
+}
+
+/* MENSAGEM DE ERRO */
+.errorMsg {
+    @apply text-[#e91111] bg-[#ee9292] p-2 rounded text-sm mt-2 w-full;
+}
+
+
